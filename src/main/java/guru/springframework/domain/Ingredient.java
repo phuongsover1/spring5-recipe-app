@@ -3,6 +3,8 @@ package guru.springframework.domain;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +24,9 @@ public class Ingredient {
 
   @ManyToOne
   private Recipe recipe;
+
+  @Enumerated(value = EnumType.STRING)
+  private Difficulty difficulty;
 
   @OneToOne(fetch = FetchType.EAGER)
   private UnitOfMeasure uom;
